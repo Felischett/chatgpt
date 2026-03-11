@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Messanger.Views.FriendsPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Freunde">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Text="⚙"
+            Clicked="OnSettingsClicked"
+            Order="Primary"
+            Priority="0" />
+    </ContentPage.ToolbarItems>
+
+    <Grid RowDefinitions="Auto,Auto,Auto,*,Auto,*"
+          Padding="16"
+          RowSpacing="12">
+
+        <VerticalStackLayout Grid.Row="0" Spacing="4">
+            <Label Text="Angemeldet als:" FontSize="12" />
+            <Label Text="{Binding AngemeldeterAnzeigeText}"
+                   FontSize="18"
+                   FontAttributes="Bold" />
+        </VerticalStackLayout>
+
+        <VerticalStackLayout Grid.Row="1" Spacing="8">
+            <Label Text="Freund hinzufügen (Key)" FontAttributes="Bold" />
+
+            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="10">
+                <Entry Grid.Column="0"
+                       Placeholder="Freund-Key eingeben..."
+                       Text="{Binding FreundKeyEingabe}" />
+                <Button Grid.Column="1"
+                        Text="Senden"
+                        Command="{Binding FreundHinzufuegenCommand}" />
+            </Grid>
+
+            <Label Text="{Binding Message}"
+                   TextColor="DarkRed"
+                   FontSize="12" />
+        </VerticalStackLayout>
+
+        <HorizontalStackLayout Grid.Row="2"
+                               Spacing="10"
+                               VerticalOptions="Center">
+            <Label Text="Anfragen" FontAttributes="Bold" />
+            <Button Text="Refresh"
+                    Command="{Binding RefreshCommand}"
+                    HorizontalOptions="EndAndExpand" />
+        </HorizontalStackLayout>
+
+        <CollectionView Grid.Row="3"
+                        ItemsSource="{Binding Anfragen}"
+                        EmptyView="Keine offenen Anfragen.">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="10" Margin="0,0,0,10">
+                        <Grid ColumnDefinitions="*,Auto,Auto"
+                              ColumnSpacing="10">
+
+                            <VerticalStackLayout Grid.Column="0" Spacing="2">
+                                <Label Text="{Binding Username}"
+                                       FontAttributes="Bold" />
+                                <Label Text="{Binding Email}"
+                                       FontSize="12"
+                                       Opacity="0.7" />
+                            </VerticalStackLayout>
+
+                            <Button Grid.Column="1"
+                                    Text="Annehmen"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}},
+                                                      Path=BindingContext.AnfrageAnnehmenCommand}"
+                                    CommandParameter="{Binding}" />
+
+                            <Button Grid.Column="2"
+                                    Text="Ablehnen"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}},
+                                                      Path=BindingContext.AnfrageAblehnenCommand}"
+                                    CommandParameter="{Binding}" />
+                        </Grid>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Label Grid.Row="4"
+               Text="Freunde (tippen zum Chat öffnen)"
+               FontAttributes="Bold" />
+
+        <CollectionView Grid.Row="5"
+                        ItemsSource="{Binding Freunde}"
+                        EmptyView="Noch keine Freunde.">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame Padding="10" Margin="0,0,0,10">
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}},
+                                                  Path=BindingContext.OpenChatCommand}"
+                                CommandParameter="{Binding}" />
+                        </Frame.GestureRecognizers>
+
+                        <VerticalStackLayout Spacing="2">
+                            <Label Text="{Binding Username}"
+                                   FontAttributes="Bold" />
+                            <Label Text="{Binding Email}"
+                                   FontSize="12"
+                                   Opacity="0.7" />
+                        </VerticalStackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+    </Grid>
+</ContentPage>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Messanger.Views.ChatPage"
+             Title="{Binding TitleText}">
+
+    <Grid RowDefinitions="*, Auto">
+
+        <CollectionView Grid.Row="0" ItemsSource="{Binding ChatMessages}" SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10">
+                        <VerticalStackLayout Spacing="4" MaximumWidthRequest="300">
+
+                            <VerticalStackLayout.Triggers>
+                                <DataTrigger TargetType="VerticalStackLayout" Binding="{Binding IsOwnMessage}" Value="True">
+                                    <Setter Property="HorizontalOptions" Value="End" />
+                                </DataTrigger>
+                                <DataTrigger TargetType="VerticalStackLayout" Binding="{Binding IsOwnMessage}" Value="False">
+                                    <Setter Property="HorizontalOptions" Value="Start" />
+                                </DataTrigger>
+                            </VerticalStackLayout.Triggers>
+
+                            <Frame CornerRadius="15" Padding="12" HasShadow="False">
+                                <Frame.Triggers>
+                                    <DataTrigger TargetType="Frame" Binding="{Binding IsOwnMessage}" Value="True">
+                                        <Setter Property="BackgroundColor" Value="#D9FDD3" />
+                                    </DataTrigger>
+                                    <DataTrigger TargetType="Frame" Binding="{Binding IsOwnMessage}" Value="False">
+                                        <Setter Property="BackgroundColor" Value="#F2F2F2" />
+                                    </DataTrigger>
+                                </Frame.Triggers>
+
+                                <VerticalStackLayout>
+                                    <Label Text="{Binding Message}" TextColor="Black" FontSize="15" />
+
+                                    <Label Text="{Binding TranslatedText}" 
+                                           TextColor="#555555" 
+                                           FontSize="13" 
+                                           FontAttributes="Italic"
+                                           Margin="0,5,0,0"
+                                           IsVisible="{Binding TranslatedText, Converter={StaticResource StringNotEmptyConverter}}" />
+                                </VerticalStackLayout>
+                            </Frame>
+
+                            <Button Text="Übersetzen" 
+                                    IsVisible="{Binding IsOwnMessage, Converter={StaticResource InvertedBoolConverter}}"
+                                    Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.TranslateCommand}"
+                                    CommandParameter="{Binding .}"
+                                    FontSize="10" HeightRequest="26" Padding="5,0" />
+                        </VerticalStackLayout>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Grid Grid.Row="1" ColumnDefinitions="*, Auto" Padding="10" BackgroundColor="#EFEFEF">
+            <Entry Grid.Column="0" Text="{Binding TextEingabe}" Placeholder="Nachricht..." />
+            <Button Grid.Column="1" Text="Senden" Command="{Binding SendCommand}" Margin="5,0,0,0" />
+        </Grid>
+
+        <Button Text="Home" Clicked="OnFreundeClicked" 
+                HorizontalOptions="Start" VerticalOptions="Start" 
+                Margin="10" HeightRequest="35" WidthRequest="70" 
+                BackgroundColor="Gray" TextColor="White" />
+
+    </Grid>
+</ContentPage>

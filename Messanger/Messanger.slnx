@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Messanger/Messanger.csproj" />
+  <Project Path="Models/Models.csproj" />
+  <Project Path="ORM/ORM.csproj" />
+  <Project Path="WebApi_Server/WebApi_Server.csproj" />
+</Solution>

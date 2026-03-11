@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Messanger.Views.MainPage"
+             Title="Start">
+
+    <VerticalStackLayout Padding="20"
+                       Spacing="16">
+
+        <Label Text="MyMess(a)nger"
+           FontSize="32"
+           HorizontalOptions="Center"
+           Margin="0,0,0,10" />
+
+        <Label Text="Willkommen! Loggen sie sich ein!:"
+           FontSize="18"
+           HorizontalOptions="Center"
+           Margin="0,0,0,20" />
+
+        <Button Text="Einloggen"
+            Margin="0,0,0,10"
+            Clicked="OnLoginClicked" />
+
+        <Button Text="Noch kein Konto? -> Registrieren"
+            Clicked="OnRegisterClicked" />
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,17 @@
+C:\Users\fexi0\Documents\Project\Messanger\ORM\bin\Debug\net10.0\ORM.deps.json
+C:\Users\fexi0\Documents\Project\Messanger\ORM\bin\Debug\net10.0\ORM.runtimeconfig.json
+C:\Users\fexi0\Documents\Project\Messanger\ORM\bin\Debug\net10.0\ORM.dll
+C:\Users\fexi0\Documents\Project\Messanger\ORM\bin\Debug\net10.0\ORM.pdb
+C:\Users\fexi0\Documents\Project\Messanger\ORM\bin\Debug\net10.0\Models.dll
+C:\Users\fexi0\Documents\Project\Messanger\ORM\bin\Debug\net10.0\Models.pdb
+C:\Users\fexi0\Documents\Project\Messanger\ORM\obj\Debug\net10.0\ORM.csproj.AssemblyReference.cache
+C:\Users\fexi0\Documents\Project\Messanger\ORM\obj\Debug\net10.0\ORM.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fexi0\Documents\Project\Messanger\ORM\obj\Debug\net10.0\ORM.AssemblyInfoInputs.cache
+C:\Users\fexi0\Documents\Project\Messanger\ORM\obj\Debug\net10.0\ORM.AssemblyInfo.cs
+C:\Users\fexi0\Documents\Project\Messanger\ORM\obj\Debug\net10.0\ORM.csproj.CoreCompileInputs.cache
+C:\Users\fexi0\Documents\Project\Messanger\ORM\obj\Debug\net10.0\ORM.csproj.Up2Date
+C:\Users\fexi0\Documents\Project\Messanger\ORM\obj\Debug\net10.0\ORM.dll
+C:\Users\fexi0\Documents\Project\Messanger\ORM\obj\Debug\net10.0\refint\ORM.dll
+C:\Users\fexi0\Documents\Project\Messanger\ORM\obj\Debug\net10.0\ORM.pdb
+C:\Users\fexi0\Documents\Project\Messanger\ORM\obj\Debug\net10.0\ORM.genruntimeconfig.cache
+C:\Users\fexi0\Documents\Project\Messanger\ORM\obj\Debug\net10.0\ref\ORM.dll
